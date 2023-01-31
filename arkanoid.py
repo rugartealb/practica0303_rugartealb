@@ -44,7 +44,7 @@ while jugando:
         if event.type == pygame.QUIT:
             jugando = False
 
-    # Compruebo si se ha pulsado alguna tecla y si se ha pulsado previamente para acelerar la barra
+    # Compruebo si se ha pulsado alguna tecla y si se ha pulsado previamente, para acelerar la barra
     keys = pygame.key.get_pressed()
     if keys[pygame.K_LEFT] and bate_rect.left > 0:
         if bate_prev_dir == -1:
@@ -66,6 +66,7 @@ while jugando:
     # Compruebo si hay colisión
     if bate_rect.colliderect(ball_rect):
         ball_dir[1] = -ball_dir[1]
+        # Aumento velocidad de la bola
         if ball_speed < 10:
             ball_speed = ball_speed + 0.5
 
